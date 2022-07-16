@@ -1,9 +1,9 @@
+
 import React from 'react'
 import Login from '../pages/Login'
 
 
 const Navbar = () => {
- 
 
   return (
     <div>
@@ -11,5 +11,6 @@ const Navbar = () => {
     </div>
   )
 }
+
 
 export default Navbar

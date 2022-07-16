@@ -3,6 +3,7 @@ import {useState,useEffect} from 'react'
 import axios from 'axios'
 import ProductItem from './ProductItem'
 
+
 const Products = () => {
    const[products,setProducts]=useState([])
 
@@ -15,6 +16,7 @@ const Products = () => {
     .catch((err)=>console.log(err))
   },[])
 
+
   return (
     <div>
         {products.map((ele,ind)=><ProductItem key={ele.id} {...ele}/>)}
@@ -23,4 +25,8 @@ const Products = () => {
   )
 }
 
+
 export default Products
+
+ 
+

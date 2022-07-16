@@ -46,5 +46,11 @@
       "description": "Product 9 Description"
     }
   ],
-  "cartItems": []
+  "cartItems": [
+    {
+      "productId": 1,
+      "id": 1,
+      "count": 1
+    }
+  ]
 }
