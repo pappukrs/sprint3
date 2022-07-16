@@ -24,6 +24,7 @@ const Products = () => {
         <button onClick={()=>{}}>ADD</button>
         <button onClick={()=>{}}>DECREASE</button>
         <button onClick={()=>{}}>Remove</button>
+        <button onClick={()=>{}}>Remove</button>
         </>
       )
      })}
