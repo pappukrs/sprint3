@@ -1,34 +1,26 @@
-import React from "react";
+import React from 'react'
+import {useState,useEffect} from 'react'
+import axios from 'axios'
+import ProductItem from './ProductItem'
 
 const Products = () => {
-    
-  const [product,setProduct]=useState([]);
+   const[products,setProducts]=useState([])
 
-  React.useState(() => {
-      fetch(` http://localhost:8080/cartItems`)
-      .then((res) =>res.json())
-      .then((res)=>setProduct(res))
-      .catch((err) =>console.log(err))
+  useEffect(() =>{
+    axios({
+         method:'get',
+         url:'http://localhost:8080/products'
 
-  })
+    }).then((res)=>setProducts(res.data))
+    .catch((err)=>console.log(err))
+  },[])
 
+  return (
+    <div>
+        {products.map((ele,ind)=><ProductItem key={ele.id} {...ele}/>)}
+        
+        </div>
+  )
+}
 
-
-
-  return <div>
-     {product.map((prod)=>{
-      return(
-        <>
-        <h1>{prod.name}</h1>
-        <p>{prod.description}</p>
-        <button onClick={()=>{}}>ADD</button>
-        <button onClick={()=>{}}>DECREASE</button>
-        <button onClick={()=>{}}>Remove</button>
-        <button onClick={()=>{}}>Remove</button>
-        </>
-      )
-     })}
-  </div>;
-};
-
-export default Products;
+export default Products

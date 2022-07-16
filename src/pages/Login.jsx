@@ -1,68 +1,34 @@
-import React, { useState, useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
-import {useNavigate}  from 'react-router-dom'
-
+import React from 'react'
+import {useState,useContext } from 'react'
+import {TextField} from '@mui/material'
+import {Button} from '@mui/material'
+ import {AuthContext} from '../context/AuthContext';
 const Login = () => {
-   const [mail,setMail]=useState("");
-   const [pass,setPass]=useState("");
-   const navG=useNavigate();
-
-   const handleLogin=()=>{
-     const data={mail,pass,setPass};
-
-     fetch(`https://reqres.in/api/login`,{
-      method:"POST",
-
-
-      headers:{
-        "content-type":"application/json",
-      },
-    
-      body:JSON.stringify(data),
-
-    
-    })
-    .then((res)=>res.json())
-    .then((res)=>{
-      if(res.token){
-        navG(`/`)
-      }
-    })
-    .catch((err)=>{console.log(err)});
-   }
-
-
-
-  return( <div>
-  
-  
-  <h2>LOGIN</h2>
-  
-    <input
-      type="text"
-      placeholder="Email"
-      value={mail}
-      onChange={(e) => setMail(e.target.value)}
-    />
+    const[email,setEmail]=useState("");
+    const[pass,setPass]=useState("");
  
-  <br />
-  
-    <input
-      type="text"
-      placeholder="Password"
-      value={pass}
-      onChange={(e) => setPass(e.target.value)}
-    />
+ 
+    const {handleLogin,token,setToken}= useContext(AuthContext);
 
-  <button onClick={handleLogin}>LOGIN</button>
-
-
-
-
-      
-              
-  </div>
+    const handleAuth=(details)=>{
+       token?setToken(""):handleLogin(details);
+    }
+ 
+      console.log(token.token)
+  return (
+    <div>
+      { 
+      token?<h1>User Logged In</h1>:
+      <>
+    <TextField  value={email} onChange={(e)=>setEmail(e.target.value)} id="standard-basic" label="Email" variant="standard" />
+    <br/>
+   <TextField value={pass} onChange={(e)=>setPass(e.target.value)} id="standard-basic" label="Password" variant="standard" />
+   <br/>
+   </>
+   }
+   <Button onClick={()=>handleAuth({email,password:pass})} variant="outlined">{token?"Log Out":"Login"}</Button>
+    </div>
   )
-};
+}
 
-export default Login;
+export default Login
