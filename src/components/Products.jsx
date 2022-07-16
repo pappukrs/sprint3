@@ -1,11 +1,9 @@
-<<<<<<< HEAD
+
 import React from 'react'
 import {useState,useEffect} from 'react'
 import axios from 'axios'
 import ProductItem from './ProductItem'
-=======
 
->>>>>>> 6fdbe33f560fdb83fc810efd6e7c1bf4613756ce
 
 
 const Products = () => {
