@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6fdbe33f560fdb83fc810efd6e7c1bf4613756ce
 
 import React from 'react'
 import {useState,useContext } from 'react'

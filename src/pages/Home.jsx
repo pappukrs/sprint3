@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import Products from '../components/Products'
 import {useContext} from 'react'
@@ -12,3 +13,6 @@ const Home = () => {
 };
 
 export default Home;
+=======
+
+>>>>>>> 6fdbe33f560fdb83fc810efd6e7c1bf4613756ce

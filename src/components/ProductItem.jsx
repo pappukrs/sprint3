@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import {Button} from '@mui/material'
 import { useContext } from "react";
@@ -25,3 +26,6 @@ export default ProductItem;
 
 // const item=cart.find((ele)=>ele.productId===id)
 //cart.reduce((prev,curr) =>(prev+curr.count),0)
+=======
+
+>>>>>>> 6fdbe33f560fdb83fc810efd6e7c1bf4613756ce
